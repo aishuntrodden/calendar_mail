@@ -75,7 +75,54 @@ begin
   end
 end while !page_token.nil?
 
-# cal.list_user_events
+
+
+
+
+
+ parameters = {
+      summary: 'Google I/O 2016',
+      location: '800 Howard St., San Francisco, CA 94103',
+      description: 'A chance to hear more about Google\'s developer products.',
+      start: {
+        date_time: '2017-07-28T09:00:00-07:00',
+        time_zone: 'America/Los_Angeles',
+      },
+      end: {
+        date_time: '2017-07-29T17:00:00-07:00',
+        time_zone: 'America/Los_Angeles',
+      },
+      recurrence: [
+        'RRULE:FREQ=DAILY;COUNT=2'
+      ],
+      attendees: [
+        {email: 'lpage@example.com'},
+        {email: 'sbrin@example.com'},
+      ],
+      reminders: {
+        use_default: false,
+        overrides: [
+          # Google::Apis::CalendarV3::EventReminder.new(reminder_method: "popup", minutes: 10),
+          # Google::Apis::CalendarV3::EventReminder.new(reminder_method: "email", minutes: 24 * 60),
+          {'reminder_method': 'popup', 'minutes': 10},
+          {'reminder_method': 'email', 'minutes': 24 * 60}
+        ]
+      }# cal.list_user_events
+}
+
+result = @cal.insert_calendar_list(parameters)
+print result.summary
+
+# calendar_params = CalendarServices.create_event
+#     @cal = Calendar.create(calendar_params)
+
+
+
+
+
+
+
+
 end
   
 

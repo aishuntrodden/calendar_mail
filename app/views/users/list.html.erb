@@ -1,12 +1,1 @@
-page_token = nil
-begin
-  result = client.list_calendar_lists(page_token: page_token)
-  result.items.each do |e|
-    print e.summary + "\n"
-  end
-  if result.next_page_token != page_token
-    page_token = result.next_page_token
-  else
-    page_token = nil
-  end
-end while !page_token.nil?
+<@= render 'result', :users_list => result%>
