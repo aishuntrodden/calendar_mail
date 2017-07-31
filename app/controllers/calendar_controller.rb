@@ -6,10 +6,13 @@ class CalendarController < ApplicationController
   end
 
   def update
+  byebug
   
 
 
   end
+
+
 
 
 

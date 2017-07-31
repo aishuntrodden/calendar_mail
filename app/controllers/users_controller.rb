@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_specific, only: [:show, :update]
+  before_action :user_specific, only: [:show, :update, :list]
 require 'google/apis/calendar_v3'
 require 'google/api_client/client_secrets'
   def index
@@ -41,8 +41,14 @@ MESSAGE_END
  
   # redirect_to users_url
   end
-def callist(user)
+
+
+
+
+
+def list()
   byebug
+
   t = @user.oauth_token  
     @user.refresh! if @user.oauth_expires_at < Time.now
   secrets = Google::APIClient::ClientSecrets.new({"web" => { access_token: @user.oauth_token, refresh_token: @user.refresh_token, client_id: '1058339180581-et1k3u81ll6ji8q27bs3q777u1do8tdc.apps.googleusercontent.com', client_secret: 'vn-Aa97wDFInTxxz7cAgl6RD'}})

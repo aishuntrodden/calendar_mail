@@ -15,7 +15,7 @@
       <td><%= user.refresh_token %></td>
        <td><%= user.oauth_token %></td>
         <td><%= link_to 'SEND MAIL',user_path(user) %></td>
-        <td><%= link_to 'callist',user_callist(user) %></td>
+        <td><%= link_to 'callist',user_list_path(user) %></td>
                     
     </tr>
   <% end %>

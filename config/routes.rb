@@ -9,11 +9,11 @@ App::Application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
  get 'allusers', to: 'users#index', as: 'allusers'
-get 'user_path',to: 'user#show' , as: 'user_path'
-get 'user_callist',to: 'user#callist', as: 'user_callist'
+# get 'user_path',to: 'user#show' , as: 'user_path'
+get 'user_list/:id',to: 'users#list', as: 'user_list'
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
-  resources :users, only: [:update, :index, :show]
+  resources :users, only: [:update, :index, :show, :list]
 
   root to: "home#show"
 end
