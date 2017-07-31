@@ -52,12 +52,29 @@ def list()
   t = @user.oauth_token  
     @user.refresh! if @user.oauth_expires_at < Time.now
   secrets = Google::APIClient::ClientSecrets.new({"web" => { access_token: @user.oauth_token, refresh_token: @user.refresh_token, client_id: '1058339180581-et1k3u81ll6ji8q27bs3q777u1do8tdc.apps.googleusercontent.com', client_secret: 'vn-Aa97wDFInTxxz7cAgl6RD'}})
-cal = Google::Apis::CalendarV3::CalendarService.new
+@cal = Google::Apis::CalendarV3::CalendarService.new
 byebug
-cal.authorization = secrets.to_authorization
+@cal.authorization = secrets.to_authorization
 byebug
 # cal.authorization.refresh!
-cal.list_calendar_lists 
+@cal.list_calendar_lists 
+
+
+
+
+page_token = nil
+begin
+  result = @cal.list_calendar_lists(page_token: page_token)
+  result.items.each do |e|
+    print e.summary + "\n"
+  end
+  if result.next_page_token != page_token
+    page_token = result.next_page_token
+  else
+    page_token = nil
+  end
+end while !page_token.nil?
+
 # cal.list_user_events
 end
   
