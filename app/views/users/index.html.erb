@@ -1,0 +1,22 @@
+
+<h1>Listing All users</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+     <th>Email</th>
+    <th> oauth_token</th>
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <tr>
+    <%byebug%>
+      <td><%= user.name %></td>
+      <td><%= user.refresh_token %></td>
+       <td><%= user.oauth_token %></td>
+        <td><%= link_to 'SEND MAIL',user_path(user) %></td>
+        <td><%= link_to 'callist',user_callist(user) %></td>
+                    
+    </tr>
+  <% end %>
+</table>

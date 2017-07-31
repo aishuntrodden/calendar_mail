@@ -1,0 +1,45 @@
+
+
+Mon Jul 24 19:00:32 2017
+Command line: TestDisk
+
+TestDisk 7.0, Data Recovery Utility, April 2015
+Christophe GRENIER <grenier@cgsecurity.org>
+http://www.cgsecurity.org
+OS: Linux, kernel 4.8.0-58-generic (#63~16.04.1-Ubuntu SMP Mon Jun 26 18:08:51 UTC 2017) x86_64
+Compiler: GCC 5.3
+ext2fs lib: 1.42.13, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.0
+/dev/sda: LBA, LBA48, DCO support
+/dev/sda: size       1953525168 sectors
+/dev/sda: user_max   1953525168 sectors
+/dev/sda: dco        1953525168 sectors
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 1000 GB / 931 GiB - CHS 121601 255 63, sector size=512 - TOSHIBA MQ01ABD100, S/N:Y63ST84FT, FW:AX1R4C
+
+Partition table type (auto): Intel
+Disk /dev/sda - 1000 GB / 931 GiB - TOSHIBA MQ01ABD100
+Partition table type: Intel
+
+Interface Advanced
+Geometry from i386 MBR: head=255 sector=63
+NTFS at 63/221/31
+Unknown XFS version 5
+
+XFS Marker at 38228/14/59
+get_geometry_from_list_part_aux head=255 nbr=1
+get_geometry_from_list_part_aux head=255 nbr=1
+ 1 * HPFS - NTFS             63 221 31 25386 159 23  406810082
+     NTFS, blocksize=4096, 208 GB / 193 GiB
+ 2 P Linux                25386 167 62 38228  14 58  206297088
+     ext4 blocksize=4096 Large_file Sparse_SB, 105 GB / 98 GiB
+ 3 P Linux                38228  14 59 39502 224 18   20480000
+     XFS 6.2+ - bitmap version blocksize=4096, 10485 MB / 10000 MiB
+ 4 E extended             39503   1 49 121601  57 56 1318907906
+ 5 L Linux                39503   1 51 120570 233 47 1302355968
+     ext4 blocksize=4096 Large_file Sparse_SB Recover, 666 GB / 621 GiB
+   X extended             120571   0  1 121601  57 56   16550597
+ 6 L Linux Swap           120571  11 17 121601  57 56   16549888
+     SWAP2 version 1, pagesize=4096, 8473 MB / 8081 MiB
+Image created successfully.
+SIGINT detected! TestDisk has been killed.

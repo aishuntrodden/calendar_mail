@@ -1,0 +1,32 @@
+<h1>Show#inside</h1>
+<p>Find me in app/views/show/inside.html.erb</p>
+    render html: "mail sent"
+<%= form_for :user, method: :patch do |f| %>
+
+			</br>
+      </br>
+      </br>
+      
+      <%= f.label :To %>
+      <%= email_field_tag "user[to]" %>
+
+      </br>
+      </br>
+      </br>
+
+      <%= f.label :subject %>
+      <%= text_field_tag "user[subject]" %>
+
+      </br>
+      </br>
+      </br>
+      
+      <%= f.label :body%>
+      <%= text_field_tag "user[body]" %>
+
+      </br>
+      </br>
+      </br>
+
+        <%= f.submit "Send"%>
+    <% end %>
