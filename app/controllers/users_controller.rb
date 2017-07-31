@@ -58,7 +58,7 @@ cal.authorization = secrets.to_authorization
 byebug
 # cal.authorization.refresh!
 cal.list_calendar_lists 
-
+# cal.list_user_events
 end
   
 
