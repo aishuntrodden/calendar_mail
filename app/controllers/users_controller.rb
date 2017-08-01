@@ -9,10 +9,10 @@ require 'google/api_client/client_secrets'
   def show
   end
 
- 
-  def update		
+
+  def update
    # byebug
-    t = @user.oauth_token  
+    t = @user.oauth_token
     @user.refresh! if @user.oauth_expires_at < Time.now
     #t.oauth_token
   #  byebug
@@ -33,12 +33,12 @@ This is an e-mail message to be sent in HTML format
 <h1>This is headline.</h1>
 MESSAGE_END
 
-	  
+
 	  smmtp.send_message message,@user.email,params[:user][:to]
 	  #byebug
 	  smmtp.finish
  # byebug
- 
+
   # redirect_to users_url
   end
 
@@ -49,7 +49,7 @@ MESSAGE_END
 def list()
   byebug
 
-  t = @user.oauth_token  
+  t = @user.oauth_token
     @user.refresh! if @user.oauth_expires_at < Time.now
   secrets = Google::APIClient::ClientSecrets.new({"web" => { access_token: @user.oauth_token, refresh_token: @user.refresh_token, client_id: '1058339180581-et1k3u81ll6ji8q27bs3q777u1do8tdc.apps.googleusercontent.com', client_secret: 'vn-Aa97wDFInTxxz7cAgl6RD'}})
 @cal = Google::Apis::CalendarV3::CalendarService.new
@@ -57,7 +57,7 @@ byebug
 @cal.authorization = secrets.to_authorization
 byebug
 # cal.authorization.refresh!
-@cal.list_calendar_lists 
+@cal.list_calendar_lists
 
 
 
@@ -80,16 +80,16 @@ end while !page_token.nil?
 
 
 
- parameters = {
+ parameters = Google::Apis::CalendarV3::Event.new({
       summary: 'Google I/O 2016',
       location: '800 Howard St., San Francisco, CA 94103',
       description: 'A chance to hear more about Google\'s developer products.',
       start: {
-        date_time: '2017-07-28T09:00:00-07:00',
+        date_time: '2017-08-02T09:00:00-07:00',
         time_zone: 'America/Los_Angeles',
       },
       end: {
-        date_time: '2017-07-29T17:00:00-07:00',
+        date_time: '2017-08-02T17:00:00-07:00',
         time_zone: 'America/Los_Angeles',
       },
       recurrence: [
@@ -108,9 +108,10 @@ end while !page_token.nil?
           {'reminder_method': 'email', 'minutes': 24 * 60}
         ]
       }# cal.list_user_events
-}
+})
+byebug
 
-result = @cal.insert_calendar_list(parameters)
+result = @cal.insert_event('primary', parameters)
 print result.summary
 
 # calendar_params = CalendarServices.create_event
@@ -124,7 +125,7 @@ print result.summary
 
 
 end
-  
+
 
 
 
@@ -138,4 +139,3 @@ end
 
 
 end
-
