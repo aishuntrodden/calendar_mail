@@ -1,26 +1,11 @@
 # README
+This is a ROR project which contains code for the follwing functions-
+1- google login through auth token
+2-storing the auth token and expiry date.
+3- getting the refresh token and storing it too.
+4-reading mails of users whose data we store through imtp .
+5-sending mail from saved user ids to any id through smtp .
+6-G calendar services of users whose data is saved.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+--To run the project,clone it and and get the required rails versio and run bundle install and then rails server and run the code.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# gmail_imap_smtp_get_post_mail
-# calendar_mail
